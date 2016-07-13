@@ -49,6 +49,7 @@
 		E489E3381C945D3800C5B11F /* LearnAlphabetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LearnAlphabetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E489E33C1C945D3800C5B11F /* LearnAlphabetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnAlphabetUITests.swift; sourceTree = "<group>"; };
 		E489E33E1C945D3800C5B11F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4CD95331D08A4C9009BA750 /* AlphabetPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AlphabetPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +107,7 @@
 				E489E3251C945D3800C5B11F /* LaunchScreen.storyboard */,
 				E489E3281C945D3800C5B11F /* Info.plist */,
 				E489E3201C945D3800C5B11F /* LearnAlphabet.xcdatamodeld */,
+				E4CD95331D08A4C9009BA750 /* AlphabetPlayground.playground */,
 			);
 			path = LearnAlphabet;
 			sourceTree = "<group>";
@@ -488,6 +490,7 @@
 				E489E3431C945D3800C5B11F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E489E3441C945D3800C5B11F /* Build configuration list for PBXNativeTarget "LearnAlphabetTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +499,7 @@
 				E489E3461C945D3800C5B11F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E489E3471C945D3800C5B11F /* Build configuration list for PBXNativeTarget "LearnAlphabetUITests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +508,7 @@
 				E489E3491C945D3800C5B11F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

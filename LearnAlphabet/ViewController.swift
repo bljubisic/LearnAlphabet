@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     var opacity: CGFloat = 1.0
     var swiped = false
     var lineDrawn: [CGPoint] = [CGPoint]()
-
+    
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
     
@@ -86,6 +86,22 @@ class ViewController: UIViewController {
             drawLineFrom(lastPoint, toPoint: lastPoint)
         }
         
+        let correct: [Bool] = lineDrawn.map {point in
+            let firstPoint = lineDrawn[0]
+            let lastPoint = lineDrawn.last!
+            
+            let y = point.y
+            let x = point.x
+            
+            let calculatedY = ((x - firstPoint.x)/(lastPoint.x - firstPoint.x)) * (lastPoint.y - firstPoint.y) + firstPoint.y
+            
+            return (20 >= abs(calculatedY - y))
+        }
+        
+        
+        
+        
+        /*
         // Merge tempImageView into mainImageView
         UIGraphicsBeginImageContext(mainImageView.frame.size)
         mainImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: CGBlendMode.Normal, alpha: 1.0)
@@ -94,8 +110,25 @@ class ViewController: UIViewController {
         UIGraphicsEndImageContext()
         
         tempImageView.image = nil
+        */
+        
     }
 
+    func checkLine(line: [CGPoint]) -> [Bool] {
+        let firstPoint = line[0]
+        let lastPoint = line.last!
+        var results: [Bool] = [Bool]()
+        
+        for point in line {
+            let y = point.y
+            let x = point.x
+            
+            let calculatedY = ((x - firstPoint.x)/(lastPoint.x - firstPoint.x)) * (lastPoint.y - firstPoint.y) + firstPoint.y
+            
+            results.append((20 >= abs(calculatedY - y)))
+        }
+        return results
+    }
 
 }
 
