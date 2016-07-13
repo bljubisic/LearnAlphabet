@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,14 +18,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jyA-x1-f0H" userLabel="MainImageView">
-                                <rect key="frame" x="0.0" y="0.0" width="655" height="600"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jyA-x1-f0H" userLabel="MainImageView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hEr-7R-d4P" userLabel="TempImageView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hEr-7R-d4P" userLabel="TempImageView">
                                 <rect key="frame" x="0.0" y="-8" width="600" height="608"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jyA-x1-f0H" secondAttribute="bottom" id="3ji-jz-sNM"/>
+                            <constraint firstItem="hEr-7R-d4P" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-8" id="QK9-0l-7au"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jyA-x1-f0H" secondAttribute="trailing" constant="-20" id="SB4-aJ-6Rf"/>
+                            <constraint firstItem="jyA-x1-f0H" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="itm-1o-ZEP"/>
+                            <constraint firstItem="jyA-x1-f0H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="j4d-Gd-vfn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hEr-7R-d4P" secondAttribute="trailing" constant="-20" id="jqq-kX-gl0"/>
+                            <constraint firstItem="hEr-7R-d4P" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="nbG-AS-JAu"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hEr-7R-d4P" secondAttribute="bottom" id="xpl-5P-UVW"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="mainImageView" destination="jyA-x1-f0H" id="sMM-Da-r5c"/>
