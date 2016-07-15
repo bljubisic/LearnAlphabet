@@ -10,6 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    
+    
+    typealias rule = ([CGPoint], [CGPoint]) -> Bool
+    
+    
+    
     var lastPoint = CGPoint.zero
     var red: CGFloat = 0.0
     var green: CGFloat = 0.0
@@ -95,10 +101,34 @@ class ViewController: UIViewController {
             
             let calculatedY = ((x - firstPoint.x)/(lastPoint.x - firstPoint.x)) * (lastPoint.y - firstPoint.y) + firstPoint.y
             
-            return (20 >= abs(calculatedY - y))
+            return (10 >= abs(calculatedY - y))
         }
         
+        for (point, cor) in zip(lineDrawn, correct) {
+            
+            UIGraphicsBeginImageContext(view.frame.size)
+            let context = UIGraphicsGetCurrentContext()
+            tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+            
+            let circleSize: CGFloat = 10
+            let pt = CGPointMake(point.x - circleSize/2, point.y - circleSize/2)
+            let circOutline = CGRectMake(pt.x, pt.y, circleSize, circleSize)
+            
+            var color = UIColor.redColor().CGColor
+            if cor {
+                color = UIColor.greenColor().CGColor
+            }
+            CGContextSetFillColorWithColor(context, color)
+            CGContextFillRect(context, circOutline)
+            CGContextStrokePath(context)
+            tempImageView.image = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            
+        }
         
+        let maxX = lineDrawn.reduce(0) {(total, point) in max(point.x, total) }
+        
+        lineDrawn = [CGPoint]()
         
         
         /*
