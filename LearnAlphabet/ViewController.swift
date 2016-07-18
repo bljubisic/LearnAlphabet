@@ -23,7 +23,8 @@ class ViewController: UIViewController {
     var brushWidth: CGFloat = 10.0
     var opacity: CGFloat = 1.0
     var swiped = false
-    var lineDrawn: [CGPoint] = [CGPoint]()
+    var currentLine: [CGPoint] = [CGPoint]()
+    var prevLine: [CGPoint] = [CGPoint]()
     
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
@@ -42,7 +43,7 @@ class ViewController: UIViewController {
         swiped = false
         if let touch = touches.first {
             lastPoint = touch.locationInView(self.view)
-            lineDrawn.append(lastPoint)
+            currentLine.append(lastPoint)
         }
     }
     
@@ -79,7 +80,7 @@ class ViewController: UIViewController {
         if let touch = touches.first {
             let currentPoint = touch.locationInView(view)
             drawLineFrom(lastPoint, toPoint: currentPoint)
-            lineDrawn.append(currentPoint)
+            currentLine.append(currentPoint)
             // 7
             lastPoint = currentPoint
         }
@@ -92,9 +93,56 @@ class ViewController: UIViewController {
             drawLineFrom(lastPoint, toPoint: lastPoint)
         }
         
-        let correct: [Bool] = lineDrawn.map {point in
-            let firstPoint = lineDrawn[0]
-            let lastPoint = lineDrawn.last!
+        let ruleStraightLineSlantedRight: rule = { (prevLine, currentLine) in
+            let firstX = currentLine[0].x
+            let lastX = currentLine.last!.x
+            let firstY = currentLine[0].y
+            let lastY = currentLine.last!.y
+            
+            let maxX = currentLine.reduce(0) { (total, point) in max(point.x, total) }
+            
+            return (((lastX - firstX) < 150) && ((lastY - firstY) > 50) && (maxX == firstX))
+        }
+        
+        let ruleStraightLineSlantedLeft: rule = { (prevLine, currentLine) in
+            let currentFirstPoint = currentLine[0]
+            let prevFirstPoint = prevLine[0]
+            let currentLastPoint = currentLine.last!
+            let prevLastPoint = prevLine.last!
+            
+            let maxX = currentLine.reduce(0) { (total, point) in max(point.x, total)}
+            
+            return ( ( (abs(currentFirstPoint.x - prevFirstPoint.x) < 5) && (abs(currentFirstPoint.y - prevFirstPoint.y) < 5)) &&
+                        (maxX == currentLastPoint.x) && (abs(currentLastPoint.x - prevLastPoint.x) > 50))
+            
+            
+        }
+        
+        let ruleStraightLineHorizontal: rule = { (prevLine, currentLine) in
+            let prevFirstPoint = prevLine[0]
+            let prevLastPoint = prevLine.last!
+            let currentFirstPoint = currentLine[0]
+            let currentLastPoint = currentLine.last!
+            
+            let maxY = currentLine.reduce(0) {(total, point) in max(point.y, total)}
+            
+            return ( ( (abs(maxY - currentFirstPoint.y) < 20) && ((prevFirstPoint.x - currentFirstPoint.x) > (prevLastPoint.x - prevFirstPoint.x))
+                        && (currentLastPoint.x >= prevLastPoint.x)))
+            
+        }
+        
+        
+        let ruleOneLetterA: Bool = ruleStraightLineSlantedRight(prevLine, currentLine)
+        let ruleTwoLetterA: Bool = ruleStraightLineSlantedLeft(prevLine, currentLine)
+        let ruleThreeLetterA: Bool = ruleStraightLineHorizontal(prevLine, currentLine)
+        
+        
+        
+        print(ruleOneLetterA)
+        
+        let correct: [Bool] = currentLine.map {point in
+            let firstPoint = currentLine[0]
+            let lastPoint = currentLine.last!
             
             let y = point.y
             let x = point.x
@@ -104,7 +152,7 @@ class ViewController: UIViewController {
             return (10 >= abs(calculatedY - y))
         }
         
-        for (point, cor) in zip(lineDrawn, correct) {
+        for (point, cor) in zip(currentLine, correct) {
             
             UIGraphicsBeginImageContext(view.frame.size)
             let context = UIGraphicsGetCurrentContext()
@@ -126,9 +174,11 @@ class ViewController: UIViewController {
             
         }
         
-        let maxX = lineDrawn.reduce(0) {(total, point) in max(point.x, total) }
+        let maxX = currentLine.reduce(0) {(total, point) in max(point.x, total) }
         
-        lineDrawn = [CGPoint]()
+        prevLine = currentLine
+        
+        currentLine = [CGPoint]()
         
         
         /*
