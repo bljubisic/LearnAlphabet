@@ -126,13 +126,17 @@ class ViewController: UIViewController {
             
             let maxY = currentLine.reduce(0) {(total, point) in max(point.y, total)}
             
-            
+            return ( ( (abs(maxY - currentFirstPoint.y) < 20) && ((prevFirstPoint.x - currentFirstPoint.x) > (prevLastPoint.x - prevFirstPoint.x))
+                        && (currentLastPoint.x >= prevLastPoint.x)))
             
         }
         
         
         let ruleOneLetterA: Bool = ruleStraightLineSlantedRight(prevLine, currentLine)
         let ruleTwoLetterA: Bool = ruleStraightLineSlantedLeft(prevLine, currentLine)
+        let ruleThreeLetterA: Bool = ruleStraightLineHorizontal(prevLine, currentLine)
+        
+        
         
         print(ruleOneLetterA)
         
