@@ -26,12 +26,59 @@ class ViewController: UIViewController {
     var currentLine: [CGPoint] = [CGPoint]()
     var prevLine: [CGPoint] = [CGPoint]()
     
+    var ruleCounter = 0
+    
+    var rules: [rule] = [rule]()
+    var rulesResult: [Bool] = [Bool]()
+    
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        let ruleStraightLineSlantedRight: rule = { (prevLine, currentLine) in
+            let firstX = currentLine[0].x
+            let lastX = currentLine.last!.x
+            let firstY = currentLine[0].y
+            let lastY = currentLine.last!.y
+            
+            let maxX = currentLine.reduce(0) { (total, point) in max(point.x, total) }
+            
+            return (((lastX - firstX) < 150) && ((lastY - firstY) > 50) && (maxX == firstX))
+        }
+        
+        let ruleStraightLineSlantedLeft: rule = { (prevLine, currentLine) in
+            let currentFirstPoint = currentLine[0]
+            let prevFirstPoint = prevLine[0]
+            let currentLastPoint = currentLine.last!
+            let prevLastPoint = prevLine.last!
+            
+            let maxX = currentLine.reduce(0) { (total, point) in max(point.x, total)}
+            
+            return ( ( (abs(currentFirstPoint.x - prevFirstPoint.x) < 5) && (abs(currentFirstPoint.y - prevFirstPoint.y) < 5)) &&
+                (maxX == currentLastPoint.x) && (abs(currentLastPoint.x - prevLastPoint.x) > 50))
+            
+            
+        }
+        
+        let ruleStraightLineHorizontal: rule = { (prevLine, currentLine) in
+            let prevFirstPoint = prevLine[0]
+            let prevLastPoint = prevLine.last!
+            let currentFirstPoint = currentLine[0]
+            let currentLastPoint = currentLine.last!
+            
+            let maxY = currentLine.reduce(0) {(total, point) in max(point.y, total)}
+            
+            return ( ( (abs(maxY - currentFirstPoint.y) < 20) && ((prevFirstPoint.x - currentFirstPoint.x) > (prevLastPoint.x - prevFirstPoint.x))
+                && (currentLastPoint.x >= prevLastPoint.x)))
+            
+        }
+        
+        rules = [ruleStraightLineSlantedRight, ruleStraightLineSlantedLeft, ruleStraightLineHorizontal]
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -93,52 +140,11 @@ class ViewController: UIViewController {
             drawLineFrom(lastPoint, toPoint: lastPoint)
         }
         
-        let ruleStraightLineSlantedRight: rule = { (prevLine, currentLine) in
-            let firstX = currentLine[0].x
-            let lastX = currentLine.last!.x
-            let firstY = currentLine[0].y
-            let lastY = currentLine.last!.y
-            
-            let maxX = currentLine.reduce(0) { (total, point) in max(point.x, total) }
-            
-            return (((lastX - firstX) < 150) && ((lastY - firstY) > 50) && (maxX == firstX))
-        }
-        
-        let ruleStraightLineSlantedLeft: rule = { (prevLine, currentLine) in
-            let currentFirstPoint = currentLine[0]
-            let prevFirstPoint = prevLine[0]
-            let currentLastPoint = currentLine.last!
-            let prevLastPoint = prevLine.last!
-            
-            let maxX = currentLine.reduce(0) { (total, point) in max(point.x, total)}
-            
-            return ( ( (abs(currentFirstPoint.x - prevFirstPoint.x) < 5) && (abs(currentFirstPoint.y - prevFirstPoint.y) < 5)) &&
-                        (maxX == currentLastPoint.x) && (abs(currentLastPoint.x - prevLastPoint.x) > 50))
-            
-            
-        }
-        
-        let ruleStraightLineHorizontal: rule = { (prevLine, currentLine) in
-            let prevFirstPoint = prevLine[0]
-            let prevLastPoint = prevLine.last!
-            let currentFirstPoint = currentLine[0]
-            let currentLastPoint = currentLine.last!
-            
-            let maxY = currentLine.reduce(0) {(total, point) in max(point.y, total)}
-            
-            return ( ( (abs(maxY - currentFirstPoint.y) < 20) && ((prevFirstPoint.x - currentFirstPoint.x) > (prevLastPoint.x - prevFirstPoint.x))
-                        && (currentLastPoint.x >= prevLastPoint.x)))
-            
-        }
-        
-        
-        let ruleOneLetterA: Bool = ruleStraightLineSlantedRight(prevLine, currentLine)
-        let ruleTwoLetterA: Bool = ruleStraightLineSlantedLeft(prevLine, currentLine)
-        let ruleThreeLetterA: Bool = ruleStraightLineHorizontal(prevLine, currentLine)
+        rulesResult.append(rules[ruleCounter](prevLine, currentLine))
         
         
         
-        print(ruleOneLetterA)
+        print(rulesResult[ruleCounter])
         
         let correct: [Bool] = currentLine.map {point in
             let firstPoint = currentLine[0]
@@ -174,12 +180,11 @@ class ViewController: UIViewController {
             
         }
         
-        let maxX = currentLine.reduce(0) {(total, point) in max(point.x, total) }
-        
         prevLine = currentLine
         
         currentLine = [CGPoint]()
         
+        ruleCounter += 1
         
         /*
         // Merge tempImageView into mainImageView
