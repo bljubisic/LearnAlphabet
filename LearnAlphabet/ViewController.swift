@@ -34,27 +34,45 @@ class ViewController: UIViewController {
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
     
+    
+    func maxx(currentPoint: CGPoint, maxPoint: CGPoint) -> CGPoint {
+        return ((currentPoint.x > maxPoint.x) ? currentPoint: maxPoint)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         
         let ruleStraightLineSlantedRight: rule = { (prevLine, currentLine) in
-            let firstX = currentLine[0].x
-            let lastX = currentLine.last!.x
-            let firstY = currentLine[0].y
-            let lastY = currentLine.last!.y
+            let first = currentLine[0]
+            let last = currentLine.reduce(CGPointMake(0, 0)) { (point, total) in
+                return ((point.y > total.y) ? point : total)
+                
+            }
             
-            let maxX = currentLine.reduce(0) { (total, point) in max(point.x, total) }
+            let maxX = currentLine.reduce(CGPointMake(0, 0)) { (point, total) in
+                return ((point.x > total.x) ? point : total)
             
-            return (((lastX - firstX) < 150) && ((lastY - firstY) > 50) && (maxX == firstX))
+            }
+            
+            return (((last.x - first.x) < 150) && ((last.y - first.y) > 50) && (maxX.x == first.x))
         }
         
         let ruleStraightLineSlantedLeft: rule = { (prevLine, currentLine) in
             let currentFirstPoint = currentLine[0]
             let prevFirstPoint = prevLine[0]
-            let currentLastPoint = currentLine.last!
-            let prevLastPoint = prevLine.last!
+            let currentLastPoint = currentLine.reduce(CGPointMake(0, 0)) { (point, total) in
+                return ((point.y > total.y) ? point : total)
+                
+            }
+
+            let prevLastPoint = prevLine.reduce(CGPointMake(0, 0)) { (point, total) in
+                return ((point.y > total.y) ? point : total)
+                
+            }
+
             
             let maxX = currentLine.reduce(0) { (total, point) in max(point.x, total)}
             
@@ -66,13 +84,22 @@ class ViewController: UIViewController {
         
         let ruleStraightLineHorizontal: rule = { (prevLine, currentLine) in
             let prevFirstPoint = prevLine[0]
-            let prevLastPoint = prevLine.last!
+            let prevLastPoint = prevLine.reduce(CGPointMake(0, 0)) { (point, total) in
+                return ((point.y > total.y) ? point : total)
+                
+            }
+
             let currentFirstPoint = currentLine[0]
-            let currentLastPoint = currentLine.last!
+            let currentLastPoint = currentLine.reduce(CGPointMake(0, 0)) { (point, total) in
+                return ((point.x > total.x) ? point : total)
+                
+            }
+
+
             
             let maxY = currentLine.reduce(0) {(total, point) in max(point.y, total)}
             
-            return ( ( (abs(maxY - currentFirstPoint.y) < 20) && ((prevFirstPoint.x - currentFirstPoint.x) > (prevLastPoint.x - prevFirstPoint.x))
+            return ( ( (abs(maxY - currentFirstPoint.y) < 20) && ((currentLastPoint.x - currentFirstPoint.x) > (prevLastPoint.x - prevFirstPoint.x)*2)
                 && (currentLastPoint.x >= prevLastPoint.x)))
             
         }
