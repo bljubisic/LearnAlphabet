@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B3FFE9A1E13BFDD00CED55F /* LetterSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3FFE991E13BFDC00CED55F /* LetterSelectionViewController.swift */; };
 		E489E31A1C945D3800C5B11F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489E3191C945D3800C5B11F /* AppDelegate.swift */; };
-		E489E31C1C945D3800C5B11F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489E31B1C945D3800C5B11F /* ViewController.swift */; };
+		E489E31C1C945D3800C5B11F /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489E31B1C945D3800C5B11F /* DrawingViewController.swift */; };
 		E489E31F1C945D3800C5B11F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E489E31D1C945D3800C5B11F /* Main.storyboard */; };
 		E489E3221C945D3800C5B11F /* LearnAlphabet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E489E3201C945D3800C5B11F /* LearnAlphabet.xcdatamodeld */; };
 		E489E3241C945D3800C5B11F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E489E3231C945D3800C5B11F /* Assets.xcassets */; };
@@ -35,9 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B3FFE991E13BFDC00CED55F /* LetterSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterSelectionViewController.swift; sourceTree = "<group>"; };
 		E489E3161C945D3800C5B11F /* LearnAlphabet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnAlphabet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E489E3191C945D3800C5B11F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E489E31B1C945D3800C5B11F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E489E31B1C945D3800C5B11F /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
 		E489E31E1C945D3800C5B11F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E489E3211C945D3800C5B11F /* LearnAlphabet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LearnAlphabet.xcdatamodel; sourceTree = "<group>"; };
 		E489E3231C945D3800C5B11F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,6 +79,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B3FFE951E13BF0F00CED55F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		0B3FFE961E13BF1700CED55F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E489E31B1C945D3800C5B11F /* DrawingViewController.swift */,
+				0B3FFE991E13BFDC00CED55F /* LetterSelectionViewController.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		0B3FFE971E13BF1E00CED55F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		0B3FFE981E13BF3300CED55F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E489E3251C945D3800C5B11F /* LaunchScreen.storyboard */,
+				E489E31D1C945D3800C5B11F /* Main.storyboard */,
+				E489E3231C945D3800C5B11F /* Assets.xcassets */,
+				E489E3281C945D3800C5B11F /* Info.plist */,
+				E489E3201C945D3800C5B11F /* LearnAlphabet.xcdatamodeld */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		E489E30D1C945D3700C5B11F = {
 			isa = PBXGroup;
 			children = (
@@ -100,13 +137,11 @@
 		E489E3181C945D3800C5B11F /* LearnAlphabet */ = {
 			isa = PBXGroup;
 			children = (
+				0B3FFE981E13BF3300CED55F /* Resources */,
+				0B3FFE971E13BF1E00CED55F /* ViewModels */,
+				0B3FFE961E13BF1700CED55F /* Views */,
+				0B3FFE951E13BF0F00CED55F /* Models */,
 				E489E3191C945D3800C5B11F /* AppDelegate.swift */,
-				E489E31B1C945D3800C5B11F /* ViewController.swift */,
-				E489E31D1C945D3800C5B11F /* Main.storyboard */,
-				E489E3231C945D3800C5B11F /* Assets.xcassets */,
-				E489E3251C945D3800C5B11F /* LaunchScreen.storyboard */,
-				E489E3281C945D3800C5B11F /* Info.plist */,
-				E489E3201C945D3800C5B11F /* LearnAlphabet.xcdatamodeld */,
 				E4CD95331D08A4C9009BA750 /* AlphabetPlayground.playground */,
 			);
 			path = LearnAlphabet;
@@ -198,13 +233,17 @@
 				TargetAttributes = {
 					E489E3151C945D3800C5B11F = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = ENT89NLKC9;
+						LastSwiftMigration = 0800;
 					};
 					E489E32C1C945D3800C5B11F = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = E489E3151C945D3800C5B11F;
 					};
 					E489E3371C945D3800C5B11F = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = E489E3151C945D3800C5B11F;
 					};
 				};
@@ -262,8 +301,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E489E3221C945D3800C5B11F /* LearnAlphabet.xcdatamodeld in Sources */,
-				E489E31C1C945D3800C5B11F /* ViewController.swift in Sources */,
+				E489E31C1C945D3800C5B11F /* DrawingViewController.swift in Sources */,
 				E489E31A1C945D3800C5B11F /* AppDelegate.swift in Sources */,
+				0B3FFE9A1E13BFDD00CED55F /* LetterSelectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,10 +445,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = ENT89NLKC9;
 				INFOPLIST_FILE = LearnAlphabet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PerSuKiBo.LearnAlphabet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -416,10 +459,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = ENT89NLKC9;
 				INFOPLIST_FILE = LearnAlphabet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PerSuKiBo.LearnAlphabet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -431,6 +477,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PerSuKiBo.LearnAlphabetTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LearnAlphabet.app/LearnAlphabet";
 			};
 			name = Debug;
@@ -443,6 +490,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PerSuKiBo.LearnAlphabetTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LearnAlphabet.app/LearnAlphabet";
 			};
 			name = Release;
@@ -454,6 +502,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PerSuKiBo.LearnAlphabetUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = LearnAlphabet;
 				USES_XCTRUNNER = YES;
 			};
@@ -466,6 +515,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PerSuKiBo.LearnAlphabetUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = LearnAlphabet;
 				USES_XCTRUNNER = YES;
 			};

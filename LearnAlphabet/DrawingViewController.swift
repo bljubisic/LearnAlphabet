@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class DrawingViewController: UIViewController {
     
     
     
@@ -30,6 +30,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
+    
+
+    
+    func maxx(_ currentPoint: CGPoint, maxPoint: CGPoint) -> CGPoint {
+        return ((currentPoint.x > maxPoint.x) ? currentPoint: maxPoint)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,23 +85,34 @@ class ViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
         
-        
         let ruleStraightLineSlantedRight: rule = { (prevLine, currentLine) in
-            let firstX = currentLine[0].x
-            let lastX = currentLine.last!.x
-            let firstY = currentLine[0].y
-            let lastY = currentLine.last!.y
+            let first = currentLine[0]
+            let last = currentLine.reduce(CGPoint(x: 0, y: 0)) { (point, total) in
+                return ((point.y > total.y) ? point : total)
+                
+            }
             
-            let maxX = currentLine.reduce(0) { (total, point) in max(point.x, total) }
+            let maxX = currentLine.reduce(CGPoint(x: 0, y: 0)) { (point, total) in
+                return ((point.x > total.x) ? point : total)
             
-            return (((lastX - firstX) < 150) && ((lastY - firstY) > 50) && (maxX == firstX))
+            }
+            
+            return (((last.x - first.x) < 150) && ((last.y - first.y) > 50) && (maxX.x == first.x))
         }
         
         let ruleStraightLineSlantedLeft: rule = { (prevLine, currentLine) in
             let currentFirstPoint = currentLine[0]
             let prevFirstPoint = prevLine[0]
-            let currentLastPoint = currentLine.last!
-            let prevLastPoint = prevLine.last!
+            let currentLastPoint = currentLine.reduce(CGPoint(x: 0, y: 0)) { (point, total) in
+                return ((point.y > total.y) ? point : total)
+                
+            }
+
+            let prevLastPoint = prevLine.reduce(CGPoint(x: 0, y: 0)) { (point, total) in
+                return ((point.y > total.y) ? point : total)
+                
+            }
+
             
             let maxX = currentLine.reduce(0) { (total, point) in max(point.x, total)}
             
@@ -106,13 +124,22 @@ class ViewController: UIViewController {
         
         let ruleStraightLineHorizontal: rule = { (prevLine, currentLine) in
             let prevFirstPoint = prevLine[0]
-            let prevLastPoint = prevLine.last!
+            let prevLastPoint = prevLine.reduce(CGPoint(x: 0, y: 0)) { (point, total) in
+                return ((point.y > total.y) ? point : total)
+                
+            }
+
             let currentFirstPoint = currentLine[0]
-            let currentLastPoint = currentLine.last!
+            let currentLastPoint = currentLine.reduce(CGPoint(x: 0, y: 0)) { (point, total) in
+                return ((point.x > total.x) ? point : total)
+                
+            }
+
+
             
             let maxY = currentLine.reduce(0) {(total, point) in max(point.y, total)}
             
-            return ( ( (abs(maxY - currentFirstPoint.y) < 20) && ((prevFirstPoint.x - currentFirstPoint.x) > (prevLastPoint.x - prevFirstPoint.x))
+            return ( ( (abs(maxY - currentFirstPoint.y) < 20) && ((currentLastPoint.x - currentFirstPoint.x) > (prevLastPoint.x - prevFirstPoint.x)*2)
                 && (currentLastPoint.x >= prevLastPoint.x)))
             
         }
@@ -126,33 +153,33 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         swiped = false
         if let touch = touches.first {
-            lastPoint = touch.locationInView(self.view)
+            lastPoint = touch.location(in: self.view)
             currentLine.append(lastPoint)
         }
     }
     
-    func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint) {
+    func drawLineFrom(_ fromPoint: CGPoint, toPoint: CGPoint) {
         
         // 1
         UIGraphicsBeginImageContext(view.frame.size)
         let context = UIGraphicsGetCurrentContext()
-        tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+        tempImageView.image?.draw(in: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
         
         // 2
-        CGContextMoveToPoint(context, fromPoint.x, fromPoint.y)
-        CGContextAddLineToPoint(context, toPoint.x, toPoint.y)
+        context?.move(to: CGPoint(x: fromPoint.x, y: fromPoint.y))
+        context?.addLine(to: CGPoint(x: toPoint.x, y: toPoint.y))
         
         // 3
-        CGContextSetLineCap(context, CGLineCap.Round)
-        CGContextSetLineWidth(context, brushWidth)
-        CGContextSetRGBStrokeColor(context, red, green, blue, 1.0)
-        CGContextSetBlendMode(context, CGBlendMode.Normal)
+        context?.setLineCap(CGLineCap.round)
+        context?.setLineWidth(brushWidth)
+        context?.setStrokeColor(red: red, green: green, blue: blue, alpha: 1.0)
+        context?.setBlendMode(CGBlendMode.normal)
         
         // 4
-        CGContextStrokePath(context)
+        context?.strokePath()
         
         // 5
         tempImageView.image = UIGraphicsGetImageFromCurrentImageContext()
@@ -161,11 +188,11 @@ class ViewController: UIViewController {
         
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         // 6
         swiped = true
         if let touch = touches.first {
-            let currentPoint = touch.locationInView(view)
+            let currentPoint = touch.location(in: view)
             drawLineFrom(lastPoint, toPoint: currentPoint)
             currentLine.append(currentPoint)
             // 7
@@ -173,7 +200,7 @@ class ViewController: UIViewController {
         }
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         if !swiped {
             // draw a single point
@@ -207,19 +234,19 @@ class ViewController: UIViewController {
             
             UIGraphicsBeginImageContext(view.frame.size)
             let context = UIGraphicsGetCurrentContext()
-            tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+            tempImageView.image?.draw(in: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
             
             let circleSize: CGFloat = 10
-            let pt = CGPointMake(point.x - circleSize/2, point.y - circleSize/2)
-            let circOutline = CGRectMake(pt.x, pt.y, circleSize, circleSize)
+            let pt = CGPoint(x: point.x - circleSize/2, y: point.y - circleSize/2)
+            let circOutline = CGRect(x: pt.x, y: pt.y, width: circleSize, height: circleSize)
             
-            var color = UIColor.redColor().CGColor
+            var color = UIColor.red.cgColor
             if cor {
-                color = UIColor.greenColor().CGColor
+                color = UIColor.green.cgColor
             }
-            CGContextSetFillColorWithColor(context, color)
-            CGContextFillRect(context, circOutline)
-            CGContextStrokePath(context)
+            context?.setFillColor(color)
+            context?.fill(circOutline)
+            context?.strokePath()
             tempImageView.image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
             
@@ -244,7 +271,7 @@ class ViewController: UIViewController {
         
     }
 
-    func checkLine(line: [CGPoint]) -> [Bool] {
+    func checkLine(_ line: [CGPoint]) -> [Bool] {
         let firstPoint = line[0]
         let lastPoint = line.last!
         var results: [Bool] = [Bool]()
