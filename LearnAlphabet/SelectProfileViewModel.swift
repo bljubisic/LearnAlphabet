@@ -10,6 +10,6 @@ import Foundation
 import UIKit
 
 
-struct SelectProfileViewModel: UITableViewDelegate, UITableViewDataSource  {
+struct SelectProfileViewModel {
     
 }
