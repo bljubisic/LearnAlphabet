@@ -12,4 +12,6 @@ import UIKit
 
 struct SelectProfileViewModel {
     
+    
+    
 }
