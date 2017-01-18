@@ -12,39 +12,22 @@ import UIKit
 struct ProfileStruct {
     let name: String
     let surname: String
-    let avatar: String
+    let avatar: AvatarStruct
     
 }
+
+struct AvatarStruct {
+    let name: String
+    let image: UIImage
+    
+}
+
 
 protocol ProfileViewModelProtocol {
     func getAllProfiles() -> [ProfileStruct]
     func getNumberOfAvailableProfiles() -> Int
-    func addNewProfile(newProfile: ProfileStruct) -> Void
+    func addNewProfile(newProfile: ProfileStruct, closure: (ProfileStruct) -> Bool) -> Void
     func selectProfile(selectedProfile: ProfileStruct) -> ProfileStruct
     
 }
 
-
-struct SelectProfileViewModel: ProfileViewModelProtocol {
-    
-    internal func selectProfile(selectedProfile: ProfileStruct) -> ProfileStruct {
-        
-    }
-
-    internal func addNewProfile(newProfile: ProfileStruct) {
-        
-    }
-
-    
-    internal func getNumberOfAvailableProfiles() -> Int {
-        
-    }
-
-    internal func getAllProfiles() -> [ProfileStruct] {
-        
-    }
-
-    
-    
-    
-}
