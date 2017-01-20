@@ -7,27 +7,23 @@
 //
 
 import Foundation
-import UIKit
+import ReactiveSwift
+import enum Result.NoError
 
-struct ProfileStruct {
-    let name: String
-    let surname: String
-    let avatar: AvatarStruct
+
+protocol ProfileViewModelProtocolOutputs {
+    var profilesAvailable: MutableProperty<[ProfileStruct]> { get }
     
+    func selectProfileOn(index: Int) -> SignalProducer<ProfileStruct, NoError>
 }
 
-struct AvatarStruct {
-    let name: String
-    let image: UIImage
-    
+protocol ProfileViewModelProtocolInputs {
+    func add(newProfile profile: ProfileStruct)
 }
 
 
-protocol ProfileViewModelProtocol {
-    func getAllProfiles() -> [ProfileStruct]
-    func getNumberOfAvailableProfiles() -> Int
-    func addNewProfile(newProfile: ProfileStruct, closure: (ProfileStruct) -> Bool) -> Void
-    func selectProfile(selectedProfile: ProfileStruct) -> ProfileStruct
-    
+protocol ProfileViewModelProtocol: ProfileViewModelProtocolOutputs, ProfileViewModelProtocolInputs {
+    var outputs: ProfileViewModelProtocolOutputs { get }
+    var inputs: ProfileViewModelProtocolInputs { get }
 }
 
