@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		0B3FFE9A1E13BFDD00CED55F /* LetterSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3FFE991E13BFDC00CED55F /* LetterSelectionViewController.swift */; };
+		0BC9B14F1E3009E0003D2843 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC9B1491E3009E0003D2843 /* ReactiveCocoa.framework */; };
+		0BC9B1501E3009E0003D2843 /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC9B1491E3009E0003D2843 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0BC9B1511E3009E0003D2843 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC9B14B1E3009E0003D2843 /* ReactiveSwift.framework */; };
+		0BC9B1521E3009E0003D2843 /* ReactiveSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC9B14B1E3009E0003D2843 /* ReactiveSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0BC9B1531E3009E0003D2843 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC9B14D1E3009E0003D2843 /* Result.framework */; };
+		0BC9B1541E3009E0003D2843 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC9B14D1E3009E0003D2843 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0BC9B1571E30F5E7003D2843 /* ModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC9B1561E30F5E7003D2843 /* ModelProtocol.swift */; };
 		E489E31A1C945D3800C5B11F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489E3191C945D3800C5B11F /* AppDelegate.swift */; };
 		E489E31C1C945D3800C5B11F /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489E31B1C945D3800C5B11F /* DrawingViewController.swift */; };
 		E489E31F1C945D3800C5B11F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E489E31D1C945D3800C5B11F /* Main.storyboard */; };
@@ -36,8 +43,28 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0BC9B1551E3009E0003D2843 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0BC9B1541E3009E0003D2843 /* Result.framework in Embed Frameworks */,
+				0BC9B1501E3009E0003D2843 /* ReactiveCocoa.framework in Embed Frameworks */,
+				0BC9B1521E3009E0003D2843 /* ReactiveSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0B3FFE991E13BFDC00CED55F /* LetterSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterSelectionViewController.swift; sourceTree = "<group>"; };
+		0BC9B1491E3009E0003D2843 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
+		0BC9B14B1E3009E0003D2843 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
+		0BC9B14D1E3009E0003D2843 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
+		0BC9B1561E30F5E7003D2843 /* ModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelProtocol.swift; sourceTree = "<group>"; };
 		E489E3161C945D3800C5B11F /* LearnAlphabet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnAlphabet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E489E3191C945D3800C5B11F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E489E31B1C945D3800C5B11F /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +88,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BC9B1531E3009E0003D2843 /* Result.framework in Frameworks */,
+				0BC9B14F1E3009E0003D2843 /* ReactiveCocoa.framework in Frameworks */,
+				0BC9B1511E3009E0003D2843 /* ReactiveSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +114,7 @@
 		0B3FFE951E13BF0F00CED55F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0BC9B1561E30F5E7003D2843 /* ModelProtocol.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -120,6 +151,9 @@
 		E489E30D1C945D3700C5B11F = {
 			isa = PBXGroup;
 			children = (
+				0BC9B1491E3009E0003D2843 /* ReactiveCocoa.framework */,
+				0BC9B14B1E3009E0003D2843 /* ReactiveSwift.framework */,
+				0BC9B14D1E3009E0003D2843 /* Result.framework */,
 				E489E3181C945D3800C5B11F /* LearnAlphabet */,
 				E489E3301C945D3800C5B11F /* LearnAlphabetTests */,
 				E489E33B1C945D3800C5B11F /* LearnAlphabetUITests */,
@@ -178,6 +212,7 @@
 				E489E3121C945D3800C5B11F /* Sources */,
 				E489E3131C945D3800C5B11F /* Frameworks */,
 				E489E3141C945D3800C5B11F /* Resources */,
+				0BC9B1551E3009E0003D2843 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -305,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4F145AA1E203EFB0078F3C3 /* SelectProfileViewModel.swift in Sources */,
+				0BC9B1571E30F5E7003D2843 /* ModelProtocol.swift in Sources */,
 				E489E3221C945D3800C5B11F /* LearnAlphabet.xcdatamodeld in Sources */,
 				E489E31C1C945D3800C5B11F /* DrawingViewController.swift in Sources */,
 				E489E31A1C945D3800C5B11F /* AppDelegate.swift in Sources */,
@@ -453,6 +489,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ENT89NLKC9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = LearnAlphabet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PerSuKiBo.LearnAlphabet;
@@ -470,6 +510,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ENT89NLKC9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = LearnAlphabet/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = PerSuKiBo.LearnAlphabet;
