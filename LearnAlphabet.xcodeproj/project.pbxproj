@@ -15,6 +15,7 @@
 		0BC9B1531E3009E0003D2843 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC9B14D1E3009E0003D2843 /* Result.framework */; };
 		0BC9B1541E3009E0003D2843 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0BC9B14D1E3009E0003D2843 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0BC9B1571E30F5E7003D2843 /* ModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC9B1561E30F5E7003D2843 /* ModelProtocol.swift */; };
+		0BC9B1591E3405D1003D2843 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 0BC9B1581E3405D1003D2843 /* Cartfile */; };
 		E489E31A1C945D3800C5B11F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489E3191C945D3800C5B11F /* AppDelegate.swift */; };
 		E489E31C1C945D3800C5B11F /* DrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489E31B1C945D3800C5B11F /* DrawingViewController.swift */; };
 		E489E31F1C945D3800C5B11F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E489E31D1C945D3800C5B11F /* Main.storyboard */; };
@@ -65,6 +66,7 @@
 		0BC9B14B1E3009E0003D2843 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		0BC9B14D1E3009E0003D2843 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		0BC9B1561E30F5E7003D2843 /* ModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelProtocol.swift; sourceTree = "<group>"; };
+		0BC9B1581E3405D1003D2843 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		E489E3161C945D3800C5B11F /* LearnAlphabet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnAlphabet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E489E3191C945D3800C5B11F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E489E31B1C945D3800C5B11F /* DrawingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 		E489E30D1C945D3700C5B11F = {
 			isa = PBXGroup;
 			children = (
+				0BC9B1581E3405D1003D2843 /* Cartfile */,
 				0BC9B1491E3009E0003D2843 /* ReactiveCocoa.framework */,
 				0BC9B14B1E3009E0003D2843 /* ReactiveSwift.framework */,
 				0BC9B14D1E3009E0003D2843 /* Result.framework */,
@@ -314,6 +317,7 @@
 			files = (
 				E489E3271C945D3800C5B11F /* LaunchScreen.storyboard in Resources */,
 				E489E3241C945D3800C5B11F /* Assets.xcassets in Resources */,
+				0BC9B1591E3405D1003D2843 /* Cartfile in Resources */,
 				E489E31F1C945D3800C5B11F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
