@@ -43,8 +43,8 @@ protocol LearnAlphabetCoreDataProtocol {
 }
 
 protocol LearnAlphabetJSONReaderProtocol {
-    func readJSONAvatars() -> [AvatarStruct]
-    func readAlphabets() -> [AlphabetStruct]
+    func readJSONAvatars() -> [AvatarStruct]?
+    func readAlphabets() -> [AlphabetStruct]?
     
 }
 
