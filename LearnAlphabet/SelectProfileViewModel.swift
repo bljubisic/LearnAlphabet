@@ -14,7 +14,7 @@ import enum Result.NoError
 protocol ProfileViewModelProtocolOutputs {
     var profilesAvailable: MutableProperty<[ProfileStruct]> { get }
     
-    func selectProfileOn(index: Int) -> SignalProducer<ProfileStruct, NoError>
+    func selectProfileOn(index: Int) -> ProfileStruct
 }
 
 protocol ProfileViewModelProtocolInputs {
