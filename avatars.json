@@ -1,0 +1,9 @@
+{
+    "avatars":[ {
+        "name": "bear"
+        "image": "bear"
+    }, {
+        "name": "dog"
+        "image": "dog"
+               }]
+}
