@@ -41,7 +41,7 @@ class DrawingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        /*
         let ruleStraightLineSlantedRight: rule = { (prevLine, currentLine) in
             let firstX = currentLine[0].x
             let lastX = currentLine.last!.x
@@ -81,7 +81,7 @@ class DrawingViewController: UIViewController {
         }
 
         rules = [ruleStraightLineSlantedRight, ruleStraightLineSlantedLeft, ruleStraightLineHorizontal]
-        
+        */
         
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -256,7 +256,7 @@ class DrawingViewController: UIViewController {
         
         currentLine = [CGPoint]()
         
-        ruleCounter += 1
+        //ruleCounter += 1
         
         /*
         // Merge tempImageView into mainImageView
