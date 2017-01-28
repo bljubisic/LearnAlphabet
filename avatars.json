@@ -3,7 +3,11 @@
         "name": "bear"
         "image": "bear"
     }, {
-        "name": "dog"
-        "image": "dog"
+        "name": "lion"
+        "image": "lion"
+               },
+    {
+        "name": "tiger"
+        "image": "tiger"
                }]
 }
