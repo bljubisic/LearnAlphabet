@@ -95,7 +95,7 @@ final class CoreDataModel: LearnAlphabetCoreDataProtocol {
                 returnedProfiles.append(tmpProfileStruct)
             }
         } catch {
-            fatalError("Failed to fetch employees: \(error)")
+            fatalError("Failed to fetch profiles: \(error)")
         }
         return returnedProfiles
     }
@@ -127,7 +127,7 @@ final class CoreDataModel: LearnAlphabetCoreDataProtocol {
                 return tmpProfileStruct
             }
         } catch {
-            fatalError("Failed to fetch employees: \(error)")
+            fatalError("Failed to fetch profiles: \(error)")
         }
         return profileStruct
         
