@@ -10,7 +10,6 @@ import Foundation
 
 
 struct ProfileStruct {
-    let profileid: Int
     let firstname: String
     let lastname: String
     let avatar: AvatarStruct
@@ -18,7 +17,6 @@ struct ProfileStruct {
 }
 
 struct ProfileProgressStruct {
-    let profileid: Int
     let alphabet: AlphabetStruct
     let character: String
 }
@@ -34,8 +32,20 @@ struct AlphabetStruct {
     let numofCharacters: Int
 }
 
+protocol EnvironmentProtocol {
+    var coreDataModel: LearnAlphabetCoreDataProtocol { get }
+    var jsonDataModel: LearnAlphabetJSONReaderProtocol { get }
+    var validationModel: ValidationModelProtocol { get }
+    var profileModel: ProfileModelProtocol { get }
+    
+    var alphabetStructArray: [AlphabetStruct]? { get }
+    var avatarStructArray: [AvatarStruct]? { get }
+}
 
 protocol LearnAlphabetCoreDataProtocol {
+    var environment: EnvironmentProtocol? { get }
+    
+    func set(Environment: EnvironmentProtocol) -> Void
     func getProfiles() -> [ProfileStruct]
     func insert(profile newProfile:ProfileStruct)
     func getProfileWith(name profileName: String) -> ProfileStruct
@@ -48,10 +58,12 @@ protocol LearnAlphabetJSONReaderProtocol {
     
 }
 
-protocol ValidateModelProtocol {
-    
+protocol ValidationModelProtocol {
+    var environment: EnvironmentProtocol? { get }
+    func set(Environment: EnvironmentProtocol) -> Void
 }
 
 protocol ProfileModelProtocol {
-    
+    var environment: EnvironmentProtocol? { get }
+    func set(Environment: EnvironmentProtocol) -> Void
 }
