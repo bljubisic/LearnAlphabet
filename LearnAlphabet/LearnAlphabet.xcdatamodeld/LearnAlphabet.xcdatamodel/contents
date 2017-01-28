@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16C67" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Profile" representedClassName="Profile" syncable="YES" codeGenerationType="class">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Profile" representedClassName=".Profile" syncable="YES">
         <attribute name="alphabet" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="avatar" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="character" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastname" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="profileid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="profileToProfileProgress" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ProfileProgress" inverseName="profileProgressToProfile" inverseEntity="ProfileProgress" syncable="YES"/>
+        <attribute name="yearsold" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="profileCharacterProgress" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProfileProgress" inverseName="profileCharacterProgress" inverseEntity="ProfileProgress" syncable="YES"/>
     </entity>
-    <entity name="ProfileProgress" representedClassName="ProfileProgress" syncable="YES" codeGenerationType="class">
+    <entity name="ProfileProgress" representedClassName=".ProfileProgress" syncable="YES">
         <attribute name="alphabetname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="character" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="profileid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="profileProgressToProfile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Profile" inverseName="profileToProfileProgress" inverseEntity="Profile" syncable="YES"/>
+        <relationship name="profileCharacterProgress" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Profile" inverseName="profileCharacterProgress" inverseEntity="Profile" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Profile" positionX="-252" positionY="27" width="128" height="148"/>
-        <element name="ProfileProgress" positionX="-243" positionY="81" width="128" height="105"/>
+        <element name="Profile" positionX="-252" positionY="27" width="128" height="150"/>
+        <element name="ProfileProgress" positionX="79" positionY="54" width="128" height="90"/>
     </elements>
 </model>
