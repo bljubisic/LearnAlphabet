@@ -7,15 +7,16 @@
         <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="yearsold" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="profileCharacterProgress" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ProfileProgress" inverseName="profileCharacterProgress" inverseEntity="ProfileProgress" syncable="YES"/>
+        <relationship name="withProgress" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProfileProgress" inverseName="forProfile" inverseEntity="ProfileProgress" syncable="YES"/>
     </entity>
     <entity name="ProfileProgress" representedClassName=".ProfileProgress" syncable="YES">
         <attribute name="alphabetname" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="character" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="profileCharacterProgress" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Profile" inverseName="profileCharacterProgress" inverseEntity="Profile" syncable="YES"/>
+        <attribute name="firstname" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="forProfile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Profile" inverseName="withProgress" inverseEntity="Profile" syncable="YES"/>
     </entity>
     <elements>
         <element name="Profile" positionX="-252" positionY="27" width="128" height="150"/>
-        <element name="ProfileProgress" positionX="79" positionY="54" width="128" height="90"/>
+        <element name="ProfileProgress" positionX="79" positionY="54" width="128" height="105"/>
     </elements>
 </model>
