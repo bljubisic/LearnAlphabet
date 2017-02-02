@@ -10,10 +10,6 @@
 		0B3A41151E3BA7FB00E17EE7 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3A41141E3BA7FB00E17EE7 /* Environment.swift */; };
 		0B3A41171E3BAA3700E17EE7 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3A41161E3BAA3700E17EE7 /* CoreDataModel.swift */; };
 		0B3FFE9A1E13BFDD00CED55F /* LetterSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B3FFE991E13BFDC00CED55F /* LetterSelectionViewController.swift */; };
-		0B6947DB1E3CB71100BE1957 /* ProfileProgress+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6947D71E3CB71100BE1957 /* ProfileProgress+CoreDataClass.swift */; };
-		0B6947DC1E3CB71100BE1957 /* ProfileProgress+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6947D81E3CB71100BE1957 /* ProfileProgress+CoreDataProperties.swift */; };
-		0B6947DD1E3CB71100BE1957 /* Profile+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6947D91E3CB71100BE1957 /* Profile+CoreDataClass.swift */; };
-		0B6947DE1E3CB71100BE1957 /* Profile+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6947DA1E3CB71100BE1957 /* Profile+CoreDataProperties.swift */; };
 		0B76B9171E3798EF00BCC419 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B76B9161E3798EF00BCC419 /* SwiftyJSON.framework */; };
 		0B76B91D1E379AC600BCC419 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0B76B9161E3798EF00BCC419 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0B76B9281E37A2D000BCC419 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B76B9261E37A2D000BCC419 /* XCTest.framework */; };
@@ -29,6 +25,9 @@
 		0BC9B1591E3405D1003D2843 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 0BC9B1581E3405D1003D2843 /* Cartfile */; };
 		0BC9B15E1E35271C003D2843 /* LearnAlphabetJSONReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC9B15D1E35271C003D2843 /* LearnAlphabetJSONReader.swift */; };
 		0BC9B1661E363C97003D2843 /* alphabets.json in Resources */ = {isa = PBXBuildFile; fileRef = 0BC9B1651E363C97003D2843 /* alphabets.json */; };
+		0BDFBBF71E421FB800FF2730 /* ManagedObjectTypeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDFBBF61E421FB800FF2730 /* ManagedObjectTypeProtocol.swift */; };
+		0BDFBBF91E42215400FF2730 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDFBBF81E42215400FF2730 /* Profile.swift */; };
+		0BDFBBFB1E42260D00FF2730 /* ProfileProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDFBBFA1E42260D00FF2730 /* ProfileProgress.swift */; };
 		0BF8D1691E3C8C4800B2739A /* ValidationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF8D1681E3C8C4800B2739A /* ValidationModel.swift */; };
 		0BF8D16B1E3C8C5B00B2739A /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF8D16A1E3C8C5B00B2739A /* ProfileModel.swift */; };
 		E489E31A1C945D3800C5B11F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E489E3191C945D3800C5B11F /* AppDelegate.swift */; };
@@ -81,10 +80,6 @@
 		0B3A41161E3BAA3700E17EE7 /* CoreDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 		0B3A41181E3BFF2100E17EE7 /* LearnAlphabet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LearnAlphabet.entitlements; sourceTree = "<group>"; };
 		0B3FFE991E13BFDC00CED55F /* LetterSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetterSelectionViewController.swift; sourceTree = "<group>"; };
-		0B6947D71E3CB71100BE1957 /* ProfileProgress+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProfileProgress+CoreDataClass.swift"; sourceTree = "<group>"; };
-		0B6947D81E3CB71100BE1957 /* ProfileProgress+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ProfileProgress+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		0B6947D91E3CB71100BE1957 /* Profile+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataClass.swift"; sourceTree = "<group>"; };
-		0B6947DA1E3CB71100BE1957 /* Profile+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Profile+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0B76B9161E3798EF00BCC419 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		0B76B91E1E379ADB00BCC419 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		0B76B9241E37A2A900BCC419 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -97,6 +92,9 @@
 		0BC9B1581E3405D1003D2843 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		0BC9B15D1E35271C003D2843 /* LearnAlphabetJSONReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LearnAlphabetJSONReader.swift; sourceTree = "<group>"; };
 		0BC9B1651E363C97003D2843 /* alphabets.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = alphabets.json; sourceTree = "<group>"; };
+		0BDFBBF61E421FB800FF2730 /* ManagedObjectTypeProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedObjectTypeProtocol.swift; sourceTree = "<group>"; };
+		0BDFBBF81E42215400FF2730 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		0BDFBBFA1E42260D00FF2730 /* ProfileProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileProgress.swift; sourceTree = "<group>"; };
 		0BF8D1681E3C8C4800B2739A /* ValidationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationModel.swift; sourceTree = "<group>"; };
 		0BF8D16A1E3C8C5B00B2739A /* ProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		E489E3161C945D3800C5B11F /* LearnAlphabet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnAlphabet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,11 +148,10 @@
 		0B3A41121E3B94E200E17EE7 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				0B6947D71E3CB71100BE1957 /* ProfileProgress+CoreDataClass.swift */,
-				0B6947D81E3CB71100BE1957 /* ProfileProgress+CoreDataProperties.swift */,
-				0B6947D91E3CB71100BE1957 /* Profile+CoreDataClass.swift */,
-				0B6947DA1E3CB71100BE1957 /* Profile+CoreDataProperties.swift */,
+				0BDFBBF81E42215400FF2730 /* Profile.swift */,
+				0BDFBBFA1E42260D00FF2730 /* ProfileProgress.swift */,
 				0B3A41161E3BAA3700E17EE7 /* CoreDataModel.swift */,
+				0BDFBBF61E421FB800FF2730 /* ManagedObjectTypeProtocol.swift */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -418,18 +415,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BDFBBFB1E42260D00FF2730 /* ProfileProgress.swift in Sources */,
 				0BF8D16B1E3C8C5B00B2739A /* ProfileModel.swift in Sources */,
 				0B3A41151E3BA7FB00E17EE7 /* Environment.swift in Sources */,
-				0B6947DC1E3CB71100BE1957 /* ProfileProgress+CoreDataProperties.swift in Sources */,
+				0BDFBBF71E421FB800FF2730 /* ManagedObjectTypeProtocol.swift in Sources */,
+				0BDFBBF91E42215400FF2730 /* Profile.swift in Sources */,
 				0BF8D1691E3C8C4800B2739A /* ValidationModel.swift in Sources */,
 				E4F145AA1E203EFB0078F3C3 /* SelectProfileViewModel.swift in Sources */,
 				0BC9B15E1E35271C003D2843 /* LearnAlphabetJSONReader.swift in Sources */,
 				0B3A41171E3BAA3700E17EE7 /* CoreDataModel.swift in Sources */,
-				0B6947DE1E3CB71100BE1957 /* Profile+CoreDataProperties.swift in Sources */,
 				0BC9B1571E30F5E7003D2843 /* ModelProtocol.swift in Sources */,
 				E489E3221C945D3800C5B11F /* LearnAlphabet.xcdatamodeld in Sources */,
-				0B6947DD1E3CB71100BE1957 /* Profile+CoreDataClass.swift in Sources */,
-				0B6947DB1E3CB71100BE1957 /* ProfileProgress+CoreDataClass.swift in Sources */,
 				E489E31C1C945D3800C5B11F /* DrawingViewController.swift in Sources */,
 				E489E31A1C945D3800C5B11F /* AppDelegate.swift in Sources */,
 				0B3FFE9A1E13BFDD00CED55F /* LetterSelectionViewController.swift in Sources */,
