@@ -10,7 +10,8 @@ import Foundation
 import CoreData
 
 final class CoreDataModel: LearnAlphabetCoreDataProtocol {
-    
+
+// MARK: Variables
     var environment: EnvironmentProtocol?
     
     lazy var applicationDocumentsDirectory: NSURL? = {
@@ -62,6 +63,8 @@ final class CoreDataModel: LearnAlphabetCoreDataProtocol {
         return managedObjectContext
     }()
     
+
+    
     func set(Environment localEnvironment: EnvironmentProtocol) {
         self.environment = localEnvironment
     }
@@ -91,7 +94,7 @@ final class CoreDataModel: LearnAlphabetCoreDataProtocol {
                 let alphabetStruct: AlphabetStruct = (self.environment!.alphabetStructArray?.filter({
                     $0.name == profile.alphabet
                 }).first)!
-                let tmpProfileStruct: ProfileStruct = ProfileStruct(firstname: profile.firstname!, lastname: profile.lastname!, avatar: avatarStruct, alphabet: alphabetStruct)
+                let tmpProfileStruct: ProfileStruct = ProfileStruct(firstname: profile.firstname, lastname: profile.lastname, language: LanguageEnum(rawValue: profile.language)!, yearsold: profile.yearsold, avatar: avatarStruct, alphabet: alphabetStruct)
                 returnedProfiles.append(tmpProfileStruct)
             }
         } catch {
@@ -105,7 +108,7 @@ final class CoreDataModel: LearnAlphabetCoreDataProtocol {
     }
     
     func getProfileWith(name profileName: String) -> ProfileStruct {
-        let profileStruct = ProfileStruct(firstname: "", lastname: "", avatar: AvatarStruct(name: "", image: ""), alphabet: AlphabetStruct(name: "", characters: [], numofCharacters: 0))
+        let profileStruct = ProfileStruct(firstname: "", lastname: "", language: LanguageEnum(rawValue: "")!, yearsold: 0, avatar: AvatarStruct()  , alphabet: AlphabetStruct())
         let profileEntity = NSEntityDescription.entity(forEntityName: "Profile", in: self.managedObjectContext!)
         let request: NSFetchRequest<Profile> = NSFetchRequest()
         request.entity = profileEntity
@@ -123,7 +126,7 @@ final class CoreDataModel: LearnAlphabetCoreDataProtocol {
                 let alphabetStruct: AlphabetStruct = (self.environment!.alphabetStructArray?.filter({
                     $0.name == profile.alphabet
                 }).first)!
-                let tmpProfileStruct: ProfileStruct = ProfileStruct(firstname: profile.firstname!, lastname: profile.lastname!, avatar: avatarStruct, alphabet: alphabetStruct)
+                let tmpProfileStruct: ProfileStruct = ProfileStruct(firstname: profile.firstname, lastname: profile.lastname, language: LanguageEnum(rawValue: profile.language)!, yearsold: 0, avatar: avatarStruct, alphabet: alphabetStruct)
                 return tmpProfileStruct
             }
         } catch {
@@ -134,9 +137,10 @@ final class CoreDataModel: LearnAlphabetCoreDataProtocol {
     }
     
     func set(avatar newAvatar: AvatarStruct, toProfile profile:ProfileStruct) -> ProfileStruct {
-        var profileStruct = ProfileStruct(firstname: "", lastname: "", avatar: AvatarStruct(name: "", image: ""), alphabet: AlphabetStruct(name: "", characters: [], numofCharacters: 0))
+        var profileStruct = ProfileStruct()
         
         return profileStruct
     }
     
 }
+
