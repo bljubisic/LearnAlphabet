@@ -103,7 +103,7 @@ extension NSManagedObjectContext {
     public func performChanges(block: @escaping () -> ()) {
         perform {
             block()
-            self.saveOrRollback()
+            let _ = self.saveOrRollback()
         }
     }
 }
