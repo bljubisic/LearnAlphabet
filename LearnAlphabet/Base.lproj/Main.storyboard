@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ybf-Sk-gV8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Ybf-Sk-gV8">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Profile Select Table View Controller-->
         <scene sceneID="jqj-ov-Fxd">
             <objects>
-                <viewController id="Ybf-Sk-gV8" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profileSelect" id="Ybf-Sk-gV8" customClass="ProfileSelectTableViewController" customModule="LearnAlphabet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gfl-jr-vY0"/>
                         <viewControllerLayoutGuide type="bottom" id="oNA-Lw-oTU"/>
@@ -27,24 +27,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="162" id="dbD-mJ-4tM">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="162"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="165" id="dbD-mJ-4tM">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="165"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dbD-mJ-4tM" id="hBA-Xl-6Xr">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="162"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="164.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTL-31-x7C">
-                                                    <rect key="frame" x="95" y="6" width="153" height="150"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTL-31-x7C">
+                                                    <rect key="frame" x="95" y="7.5" width="150" height="150"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Button" image="addProfile"/>
                                                     <state key="selected" image="addProfileInverse"/>
                                                 </button>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="zTL-31-x7C" firstAttribute="leading" secondItem="hBA-Xl-6Xr" secondAttribute="leadingMargin" constant="87" id="IhK-Xu-f0P"/>
-                                                <constraint firstItem="zTL-31-x7C" firstAttribute="centerY" secondItem="hBA-Xl-6Xr" secondAttribute="centerY" id="K7m-Qb-YoU"/>
-                                                <constraint firstItem="zTL-31-x7C" firstAttribute="centerX" secondItem="hBA-Xl-6Xr" secondAttribute="centerX" id="u4f-BR-qFO"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
