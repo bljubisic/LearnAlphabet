@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 
 public final class Profile: ManagedObject {
+    
     @NSManaged public private(set) var alphabet: String
     @NSManaged public private(set) var avatar: String
     @NSManaged public private(set) var firstname: String
@@ -18,10 +19,10 @@ public final class Profile: ManagedObject {
     @NSManaged public private(set) var yearsold: Int
     @NSManaged public private(set) var progresses: Set<ProfileProgress>
     
-    public static func insertIntoContext(moc: NSManagedObjectContext, profile: ProfileStruct) -> Profile {
+    public static func insertIntoContext(moc: NSManagedObjectContext, profile: ProfileSt) -> Profile {
         let localProfile:Profile = moc.insertObject()
-        localProfile.alphabet = profile.alphabet.name
-        localProfile.avatar = profile.avatar.name
+        localProfile.alphabet = profile.alphabet.name!
+        localProfile.avatar = profile.avatar.name!
         localProfile.firstname = profile.firstname
         localProfile.lastname = profile.lastname
         
