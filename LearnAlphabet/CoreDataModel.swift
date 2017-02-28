@@ -77,9 +77,9 @@ final class CoreDataModel: LearnAlphabetCoreDataProtocol {
         self.environment = localEnvironment
     }
     
-    func getProfiles() -> [ProfileStruct] {
+    func getProfiles() -> [ProfileSt] {
         
-        var returnedProfiles: [ProfileStruct] = [ProfileStruct]()
+        var returnedProfiles: [ProfileSt] = [ProfileSt]()
         
         let profileEntity = NSEntityDescription.entity(forEntityName: "Profile", in: self.managedObjectContext!)
         let request: NSFetchRequest<Profile> = NSFetchRequest()
@@ -88,14 +88,16 @@ final class CoreDataModel: LearnAlphabetCoreDataProtocol {
         do {
             let fetchedProfiles = try self.managedObjectContext!.fetch(request as! NSFetchRequest<NSFetchRequestResult>) as! [Profile]
             for profile in fetchedProfiles {
-                let avatarStruct: AvatarStruct = (self.environment!.avatarStructArray?.filter({
-                        $0.name == profile.avatar
-                }).first)!
-                let alphabetStruct: AlphabetStruct = (self.environment!.alphabetStructArray?.filter({
+                guard let environment = self.environment else {
+                    break
+                }
+                let tmpProfileStruct: ProfileSt = ProfileSt(firstname: profile.firstname, lastname: profile.lastname, language: LanguageEnum(rawValue: profile.language)!, yearsold: profile.yearsold, avatar: (environment.avatarStructArray.filter({
+                    $0.name == profile.avatar
+                }).first)!, alphabet: (environment.alphabetStructArray.filter({
                     $0.name == profile.alphabet
-                }).first)!
-                let tmpProfileStruct: ProfileStruct = ProfileStruct(firstname: profile.firstname, lastname: profile.lastname, language: LanguageEnum(rawValue: profile.language)!, yearsold: profile.yearsold, avatar: avatarStruct, alphabet: alphabetStruct)
+                }).first)!)
                 returnedProfiles.append(tmpProfileStruct)
+
             }
         } catch {
             fatalError("Failed to fetch profiles: \(error)")
@@ -103,12 +105,20 @@ final class CoreDataModel: LearnAlphabetCoreDataProtocol {
         return returnedProfiles
     }
     
-    func insert(profile newProfile:ProfileStruct) {
+    func insert(profile newProfile:ProfileSt) -> ProfileSt {
+        
+        let profile: Profile = Profile.insertIntoContext(moc: self.managedObjectContext!, profile: newProfile)
+        guard let environment = self.environment else {
+            return ProfileSt()
+        }
+        return ProfileSt(firstname: profile.firstname, lastname: profile.lastname, language: LanguageEnum(rawValue: profile.language)!, yearsold: profile.yearsold, avatar: (environment.avatarStructArray.filter({
+            $0.name == profile.avatar
+        }).first)!, alphabet: (environment.alphabetStructArray.filter( { $0.name == profile.alphabet}).first)!)
         
     }
     
-    func getProfileWith(name profileName: String) -> ProfileStruct {
-        let profileStruct = ProfileStruct(firstname: "", lastname: "", language: LanguageEnum(rawValue: "")!, yearsold: 0, avatar: AvatarStruct()  , alphabet: AlphabetStruct())
+    func getProfileWith(name profileName: String) -> ProfileSt {
+        let profileSt = ProfileSt(firstname: "", lastname: "", language: LanguageEnum(rawValue: "")!, yearsold: 0, avatar: Avatar()  , alphabet: Alphabet())
         let profileEntity = NSEntityDescription.entity(forEntityName: "Profile", in: self.managedObjectContext!)
         let request: NSFetchRequest<Profile> = NSFetchRequest()
         request.entity = profileEntity
@@ -120,26 +130,27 @@ final class CoreDataModel: LearnAlphabetCoreDataProtocol {
         do {
             let fetchedProfiles = try self.managedObjectContext!.fetch(request as! NSFetchRequest<NSFetchRequestResult>) as! [Profile]
             for profile in fetchedProfiles {
-                let avatarStruct: AvatarStruct = (self.environment!.avatarStructArray?.filter({
+                guard let environment = self.environment else {
+                    return ProfileSt()
+                }
+                return ProfileSt(firstname: profile.firstname, lastname: profile.lastname, language: LanguageEnum(rawValue: profile.language)!, yearsold: 0, avatar: (environment.avatarStructArray.filter({
                     $0.name == profile.avatar
-                }).first)!
-                let alphabetStruct: AlphabetStruct = (self.environment!.alphabetStructArray?.filter({
+                }).first)!, alphabet: (environment.alphabetStructArray.filter({
                     $0.name == profile.alphabet
-                }).first)!
-                let tmpProfileStruct: ProfileStruct = ProfileStruct(firstname: profile.firstname, lastname: profile.lastname, language: LanguageEnum(rawValue: profile.language)!, yearsold: 0, avatar: avatarStruct, alphabet: alphabetStruct)
-                return tmpProfileStruct
+                }).first)!)
+                
             }
         } catch {
             fatalError("Failed to fetch profiles: \(error)")
         }
-        return profileStruct
+        return profileSt
         
     }
     
-    func set(avatar newAvatar: AvatarStruct, toProfile profile:ProfileStruct) -> ProfileStruct {
-        var profileStruct = ProfileStruct()
-        
-        return profileStruct
+    func set(avatar newAvatar: Avatar, toProfile profile:ProfileSt) -> ProfileSt {
+        let profileSt = ProfileSt()
+
+        return profileSt
     }
     
 }
