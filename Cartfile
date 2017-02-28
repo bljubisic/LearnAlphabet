@@ -1,2 +1,5 @@
-github "ReactiveCocoa/ReactiveCocoa" "5.0.0-rc.1"
-github "SwiftyJSON/SwiftyJSON"
+github "ReactiveCocoa/ReactiveCocoa"
+github "hkellaway/Gloss"
+github "SnapKit/SnapKit" ~> 3.2.0
+github "Alamofire/Alamofire"
+
