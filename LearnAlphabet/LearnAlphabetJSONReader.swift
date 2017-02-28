@@ -7,50 +7,68 @@
 //
 
 import Foundation
-import SwiftyJSON
+import Gloss
 
 final class LearnAlphabetJSONReader: LearnAlphabetJSONReaderProtocol {
     
-    func readAlphabets() -> [AlphabetStruct]? {
+    func readAlphabets() -> [Alphabet] {
         let bundle =  Bundle.main
         if let path = bundle.path(forResource: "alphabets", ofType: "json") {
             do {
                 let content = try Data(contentsOf: URL(fileURLWithPath: path))
-                let json = JSON(content)
-                var arrayOfAlphabets: [AlphabetStruct] = [AlphabetStruct]()
-                for alphabet in json["alphabets"].arrayValue {
-                    let alphabetStruct = AlphabetStruct(name: alphabet["name"].stringValue, characters: alphabet["letters"].arrayObject as! [String], numofCharacters: alphabet["length"].intValue)
-                    arrayOfAlphabets.append(alphabetStruct)
+                let json = try JSONSerialization.jsonObject(with: content)
+                    
+                guard let dictionary = json as? [String: Any] else {
+                    print("Error: json is not Dictionary[String: Any]")
+                    return []
                 }
-                return arrayOfAlphabets
-            
+                    
+                guard let arrayOfAlphabets = Alphabtes(json: dictionary) else {
+                    print("Error initializing object")
+                    return []
+                }
+                    
+                guard let alphabets = arrayOfAlphabets.alphabets else {
+                    print("Error initializing object")
+                    return []
+                }
+                return alphabets
             } catch let error as NSError {
                 print(error.localizedDescription)
-                return nil
+                return []
             }
         }
-        return nil
+        return []
     }
     
-    func readJSONAvatars() -> [AvatarStruct]? {
+    func readJSONAvatars() -> [Avatar] {
         let bundle =  Bundle.main
         if let path = bundle.path(forResource: "avatars", ofType: "json") {
             do {
                 let content = try Data(contentsOf: URL(fileURLWithPath: path))
-                let json = JSON(content)
-                var arrayOfAvatars: [AvatarStruct] = [AvatarStruct]()
-                for avatar in json["avatars"].arrayValue {
-                    let avatarStruct = AvatarStruct(name: avatar["name"].stringValue, image: avatar["image"].stringValue)
-                    arrayOfAvatars.append(avatarStruct)
+                let json = try JSONSerialization.jsonObject(with: content)
+                    
+                guard let dictionary = json as? [String: Any] else {
+                    print("Error: json is not Dictionary[String: Any]")
+                    return []
                 }
-                return arrayOfAvatars
-                
+                    
+                guard let arrayOfAvatars = Avatars(json: dictionary) else {
+                    print("Error initializing object")
+                    return []
+                }
+                    
+                guard let avatars = arrayOfAvatars.avatars else {
+                    print("Error initializing object")
+                    return []
+                }
+                return avatars
             } catch let error as NSError {
                 print(error.localizedDescription)
-                return nil
+                return []
             }
         }
-        return nil
+        return []
     }
     
 }
