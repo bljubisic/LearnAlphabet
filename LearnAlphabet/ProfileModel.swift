@@ -7,7 +7,9 @@
 //
 
 import Foundation
-
+import ReactiveSwift
+import Alamofire
+import enum Result.NoError
 
 final class ProfileModel: ProfileModelProtocol {
     var environment: EnvironmentProtocol?
@@ -20,4 +22,21 @@ final class ProfileModel: ProfileModelProtocol {
         self.environment = nil
     }
     
+    func availableProfiles() -> [ProfileSt] {
+        guard let environment = self.environment else {
+            return []
+        }
+        return environment.coreDataModel.getProfiles()
+    }
+    
+    func add(profile newProfile: ProfileSt) -> ProfileSt {
+        guard let environment = self.environment else {
+            return ProfileSt()
+        }
+        return environment.coreDataModel.insert(profile: newProfile)
+    }
+    
+    func change(profile oldProfile: ProfileSt, withProfile newProfile: ProfileSt) -> ProfileSt {
+        return newProfile
+    }
 }
