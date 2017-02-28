@@ -15,8 +15,8 @@ final class Environment: EnvironmentProtocol {
     var jsonDataModel: LearnAlphabetJSONReaderProtocol
     var validationModel: ValidationModelProtocol
     var profileModel: ProfileModelProtocol
-    var alphabetStructArray: [AlphabetStruct]?
-    var avatarStructArray: [AvatarStruct]?
+    var alphabetStructArray: [Alphabet]
+    var avatarStructArray: [Avatar]
     
     init() {
         coreDataModel = CoreDataModel()
