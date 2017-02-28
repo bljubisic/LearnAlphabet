@@ -24,7 +24,7 @@ class LearnAlphabetTests: XCTestCase {
     func testReadAlphabets() {
         let alphabetJSONReader: LearnAlphabetJSONReader = LearnAlphabetJSONReader()
         
-        let arrayOfAlphabets:[AlphabetStruct]? = alphabetJSONReader.readAlphabets()
+        let arrayOfAlphabets:[Alphabet]? = alphabetJSONReader.readAlphabets()
         
         assert(arrayOfAlphabets != nil, "Array is nil")
         
@@ -34,7 +34,7 @@ class LearnAlphabetTests: XCTestCase {
     func testReadAvatars() {
         let alphabetJSONReader: LearnAlphabetJSONReader = LearnAlphabetJSONReader()
         
-        let arrayOfAvatars:[AvatarStruct]? = alphabetJSONReader.readJSONAvatars()
+        let arrayOfAvatars:[Avatar]? = alphabetJSONReader.readJSONAvatars()
         
         assert(arrayOfAvatars != nil, "Array is nil")
         
