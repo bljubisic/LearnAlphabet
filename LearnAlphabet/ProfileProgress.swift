@@ -15,10 +15,10 @@ public final class ProfileProgress: ManagedObject {
     @NSManaged public private(set) var character: String
     @NSManaged public private(set) var profile: Profile
     
-    public static func insertIntoContext(moc: NSManagedObjectContext, profileProgress: ProfileProgressStruct) -> ProfileProgress {
+    public static func insertIntoContext(moc: NSManagedObjectContext, profileProgress: ProfileProgressSt) -> ProfileProgress {
         let localProfileProgress: ProfileProgress = moc.insertObject()
         localProfileProgress.firstname = profileProgress.firstname
-        localProfileProgress.alphabetname = profileProgress.alphabet.name
+        localProfileProgress.alphabetname = profileProgress.alphabet.name!
         localProfileProgress.character = profileProgress.character
         localProfileProgress.profile = Profile.findOrCreateProfileWithProgress(firstname: profileProgress.firstname, inContext: moc)
         
