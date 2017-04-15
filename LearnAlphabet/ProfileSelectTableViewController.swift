@@ -9,6 +9,7 @@
 import UIKit
 import ReactiveCocoa
 import ReactiveSwift
+import SnapKit
 
 class ProfileSelectTableViewController: UIViewController{
     
@@ -17,7 +18,16 @@ class ProfileSelectTableViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.tableView = UITableView()
+        self.view.addSubview(self.tableView)
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.register(AddProfileTableViewCell.self, forCellReuseIdentifier: "addProfileCell")
+        self.tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: "profileCell")
+        self.tableView.snp.makeConstraints { (make) in
+            make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(20, 5, 5, 0))
+        }
+        self.tableView.setContentOffset(CGPoint.zero, animated:true)
     }
 
 }
@@ -47,6 +57,7 @@ extension ProfileSelectTableViewController: UITableViewDataSource {
         if(indexPath.row == 0) {
             let cellIdentifier = "addProfileCell"
             let cell: AddProfileTableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! AddProfileTableViewCell
+            cell.addProfile.addTarget(self, action: #selector(self.pressedButton(sender:)), for: .touchUpInside)
             return cell
         } else {
             let cellIdentifier = "profileCell"
@@ -64,6 +75,13 @@ extension ProfileSelectTableViewController: UITableViewDataSource {
             cell.profileName.text = viewModel.outputs.getProfileName(withIndex: indexPath.row - 1)
             return cell
         }
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 165
+    }
+    
+    func pressedButton(sender: UIButton!) {
+        print("Add profile button pressed")
     }
     
 }
