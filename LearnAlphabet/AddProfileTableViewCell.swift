@@ -17,6 +17,7 @@ class AddProfileTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.addProfile = UIButton(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+        self.contentView.addSubview(self.addProfile)
         self.addProfile.setBackgroundImage(#imageLiteral(resourceName: "addProfile"), for: .normal)
         
         self.addProfile.snp.makeConstraints { (make) in
