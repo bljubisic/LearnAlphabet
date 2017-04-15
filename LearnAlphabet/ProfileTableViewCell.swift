@@ -19,7 +19,8 @@ class ProfileTableViewCell: UITableViewCell {
         
         self.avatarImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 240, height: 240))
         self.profileName = UILabel()
-        
+        self.contentView.addSubview(self.avatarImage)
+        self.contentView.addSubview(self.profileName)
         self.avatarImage.snp.makeConstraints { (make) in
             make.centerY.equalTo(self.contentView)
             make.left.equalTo(self.contentView).inset(10)
