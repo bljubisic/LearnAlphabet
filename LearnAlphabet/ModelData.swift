@@ -9,6 +9,11 @@
 import Foundation
 import Gloss
 
+struct Lens<Whole, Part> {
+    let get: (Whole) -> Part
+    let set: (Part, Whole) -> Whole
+}
+
 public struct ProfileSt {
     let firstname: String
     let lastname: String
@@ -29,6 +34,37 @@ extension ProfileSt {
     }
 }
 
+extension ProfileSt {
+    static let firstnameLens = Lens<ProfileSt, String> (
+        get: {$0.firstname },
+        set: { (f, p) in ProfileSt(firstname: f, lastname: p.lastname, language: p.language, yearsold: p.yearsold, avatar: p.avatar, alphabet: p.alphabet) }
+    )
+    
+    static let lastnameLens = Lens<ProfileSt, String> (
+        get: {$0.lastname},
+        set: {(l, p) in ProfileSt(firstname: p.firstname, lastname: l, language: p.language, yearsold: p.yearsold, avatar: p.avatar, alphabet: p.alphabet) }
+    )
+    
+    static let languageLens = Lens<ProfileSt, LanguageEnum> (
+        get: {$0.language},
+        set: { (l, p) in ProfileSt(firstname: p.firstname, lastname: p.lastname, language: l, yearsold: p.yearsold, avatar: p.avatar, alphabet: p.alphabet) }
+    )
+    
+    static let yearsoldLens = Lens<ProfileSt, Int> (
+        get: {$0.yearsold},
+        set: {(y,p) in ProfileSt(firstname: p.firstname, lastname: p.lastname, language: p.language, yearsold: y, avatar: p.avatar, alphabet: p.alphabet) }
+    )
+    
+    static let avatarLens = Lens<ProfileSt, Avatar> (
+        get: { $0.avatar },
+        set: { (a, p) in ProfileSt(firstname: p.firstname, lastname: p.lastname, language: p.language, yearsold: p.yearsold, avatar: a, alphabet: p.alphabet) }
+    )
+    
+    static let alphabetLens = Lens<ProfileSt, Alphabet> (
+        get: { $0.alphabet },
+        set: { (a, p) in ProfileSt(firstname: p.firstname, lastname: p.lastname, language: p.language, yearsold: p.yearsold, avatar: p.avatar, alphabet: a) }
+    )
+}
 public struct ProfileProgressSt {
     let firstname: String
     let alphabet: Alphabet
