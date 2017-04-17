@@ -1,13 +1,15 @@
 {
-    "avatars":[ {
-        "name": "bear"
-        "image": "bear"
-    }, {
-        "name": "lion"
-        "image": "lion"
-               },
-    {
-        "name": "tiger"
-        "image": "tiger"
-               }]
+"avatars":
+[{
+    "name": "bear",
+    "image": "bear"
+},
+{
+    "name": "lion",
+    "image": "lion"
+},
+{
+    "name": "tiger",
+    "image": "tiger"
+}]
 }
