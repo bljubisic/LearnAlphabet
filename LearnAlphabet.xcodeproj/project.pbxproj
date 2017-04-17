@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B0589FB1E705CED00D72A36 /* AddProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0589FA1E705CED00D72A36 /* AddProfileViewController.swift */; };
 		0B0F5B6A1E64406B00057F91 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0F5B691E64406B00057F91 /* ModelData.swift */; };
 		0B0F5B6C1E645E1600057F91 /* AddProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0F5B6B1E645E1600057F91 /* AddProfileTableViewCell.swift */; };
 		0B0F5B6E1E6463A300057F91 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0F5B6D1E6463A300057F91 /* ProfileTableViewCell.swift */; };
@@ -89,6 +90,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0B0589FA1E705CED00D72A36 /* AddProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProfileViewController.swift; sourceTree = "<group>"; };
 		0B0F5B691E64406B00057F91 /* ModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		0B0F5B6B1E645E1600057F91 /* AddProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddProfileTableViewCell.swift; sourceTree = "<group>"; };
 		0B0F5B6D1E6463A300057F91 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
@@ -169,6 +171,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B0589F91E705CAD00D72A36 /* AddProfile */ = {
+			isa = PBXGroup;
+			children = (
+				0B0589FA1E705CED00D72A36 /* AddProfileViewController.swift */,
+			);
+			name = AddProfile;
+			sourceTree = "<group>";
+		};
 		0B3A41121E3B94E200E17EE7 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,7 +207,8 @@
 		0B3FFE961E13BF1700CED55F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0B9AA6F01E5EF3280009E2D8 /* ProfileSelect */,
+				0B0589F91E705CAD00D72A36 /* AddProfile */,
+				0B9AA6F01E5EF3280009E2D8 /* SelectProfile */,
 				E489E31B1C945D3800C5B11F /* DrawingViewController.swift */,
 				0B3FFE991E13BFDC00CED55F /* LetterSelectionViewController.swift */,
 				0B5631DA1E545CA500B22A3D /* ViewControllerProtocol.swift */,
@@ -237,14 +248,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		0B9AA6F01E5EF3280009E2D8 /* ProfileSelect */ = {
+		0B9AA6F01E5EF3280009E2D8 /* SelectProfile */ = {
 			isa = PBXGroup;
 			children = (
 				0B31E8351E4FC3AB000B60B0 /* ProfileSelectTableViewController.swift */,
 				0B0F5B6B1E645E1600057F91 /* AddProfileTableViewCell.swift */,
 				0B0F5B6D1E6463A300057F91 /* ProfileTableViewCell.swift */,
 			);
-			name = ProfileSelect;
+			name = SelectProfile;
 			sourceTree = "<group>";
 		};
 		E489E30D1C945D3700C5B11F = {
@@ -465,6 +476,7 @@
 				0BF8D1691E3C8C4800B2739A /* ValidationModel.swift in Sources */,
 				E4F145AA1E203EFB0078F3C3 /* ProfileViewModelProtocol.swift in Sources */,
 				0BC9B15E1E35271C003D2843 /* LearnAlphabetJSONReader.swift in Sources */,
+				0B0589FB1E705CED00D72A36 /* AddProfileViewController.swift in Sources */,
 				0B3A41171E3BAA3700E17EE7 /* CoreDataModel.swift in Sources */,
 				0B31E8361E4FC3AB000B60B0 /* ProfileSelectTableViewController.swift in Sources */,
 				0B0F5B6A1E64406B00057F91 /* ModelData.swift in Sources */,
