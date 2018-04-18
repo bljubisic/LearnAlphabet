@@ -25,7 +25,7 @@ class ProfileSelectTableViewController: UIViewController{
         self.tableView.register(AddProfileTableViewCell.self, forCellReuseIdentifier: "addProfileCell")
         self.tableView.register(ProfileTableViewCell.self, forCellReuseIdentifier: "profileCell")
         self.tableView.snp.makeConstraints { (make) in
-            make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(20, 5, 5, 0))
+            make.edges.equalTo(self.view).inset(UIEdgeInsetsMake(20, 0, 0, 0))
         }
         self.tableView.setContentOffset(CGPoint.zero, animated:true)
     }
@@ -82,6 +82,10 @@ extension ProfileSelectTableViewController: UITableViewDataSource {
     
     func pressedButton(sender: UIButton!) {
         print("Add profile button pressed")
+        let addProfileViewController: AddProfileViewController = AddProfileViewController()
+        self.present(addProfileViewController, animated: true) { 
+            print("Presented")
+        }
     }
     
 }

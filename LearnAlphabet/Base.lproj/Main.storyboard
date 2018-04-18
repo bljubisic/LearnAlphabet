@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -39,70 +39,7 @@
                     <view key="view" contentMode="scaleToFill" id="5Io-9X-Ypb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xpE-UQ-hRT">
-                                <rect key="frame" x="147" y="28" width="120" height="120"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="KVZ-Dq-4nr"/>
-                                    <constraint firstAttribute="width" constant="120" id="bX2-Tx-Dr4"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="first name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aNq-xe-VTR">
-                                <rect key="frame" x="30" y="178" width="354" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="hEe-xG-vF0"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="last name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kZH-XR-oRY">
-                                <rect key="frame" x="30" y="238" width="354" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="6ir-j5-pcp"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIw-Dn-AhE">
-                                <rect key="frame" x="30" y="349" width="354" height="216"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="K9E-yu-mWK"/>
-                                </constraints>
-                            </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Om9-vQ-lEk">
-                                <rect key="frame" x="30" y="298" width="354" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="Aim-Fl-SSu"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="xpE-UQ-hRT" firstAttribute="top" secondItem="eLO-LS-gwt" secondAttribute="bottom" constant="8" id="6G8-Dh-Lup"/>
-                            <constraint firstItem="aNq-xe-VTR" firstAttribute="centerX" secondItem="5Io-9X-Ypb" secondAttribute="centerX" id="7Zl-WX-ezc"/>
-                            <constraint firstItem="aNq-xe-VTR" firstAttribute="top" secondItem="xpE-UQ-hRT" secondAttribute="bottom" constant="30" id="9ZZ-Ee-ZFm"/>
-                            <constraint firstItem="xpE-UQ-hRT" firstAttribute="centerX" secondItem="5Io-9X-Ypb" secondAttribute="centerX" id="AXO-uE-o0P"/>
-                            <constraint firstItem="Om9-vQ-lEk" firstAttribute="leading" secondItem="5Io-9X-Ypb" secondAttribute="leadingMargin" constant="10" id="DwT-z9-lYs"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="kZH-XR-oRY" secondAttribute="trailing" constant="10" id="Fvl-VL-SEH"/>
-                            <constraint firstItem="kZH-XR-oRY" firstAttribute="leading" secondItem="5Io-9X-Ypb" secondAttribute="leadingMargin" constant="10" id="KdB-e8-eIX"/>
-                            <constraint firstItem="LIw-Dn-AhE" firstAttribute="centerX" secondItem="5Io-9X-Ypb" secondAttribute="centerX" id="MdM-vk-PYb"/>
-                            <constraint firstItem="kZH-XR-oRY" firstAttribute="top" secondItem="aNq-xe-VTR" secondAttribute="bottom" constant="30" id="Qry-Df-CHq"/>
-                            <constraint firstItem="LIw-Dn-AhE" firstAttribute="leading" secondItem="5Io-9X-Ypb" secondAttribute="leadingMargin" constant="10" id="UjT-q6-rd3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="LIw-Dn-AhE" secondAttribute="trailing" constant="10" id="VNe-fG-mtA"/>
-                            <constraint firstItem="Om9-vQ-lEk" firstAttribute="top" secondItem="kZH-XR-oRY" secondAttribute="bottom" constant="30" id="Y1U-uM-WNZ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Om9-vQ-lEk" secondAttribute="trailing" constant="10" id="aUs-dd-2QD"/>
-                            <constraint firstItem="Om9-vQ-lEk" firstAttribute="centerX" secondItem="5Io-9X-Ypb" secondAttribute="centerX" id="g00-Ou-HUZ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="aNq-xe-VTR" secondAttribute="trailing" constant="10" id="hgv-nX-w01"/>
-                            <constraint firstItem="LIw-Dn-AhE" firstAttribute="top" secondItem="Om9-vQ-lEk" secondAttribute="bottom" constant="30" id="lsZ-3c-cFh"/>
-                            <constraint firstItem="aNq-xe-VTR" firstAttribute="leading" secondItem="5Io-9X-Ypb" secondAttribute="leadingMargin" constant="10" id="mhn-o2-3oW"/>
-                            <constraint firstItem="kZH-XR-oRY" firstAttribute="centerX" secondItem="5Io-9X-Ypb" secondAttribute="centerX" id="r5y-zK-Szv"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7u7-S1-jKH" userLabel="First Responder" sceneMemberID="firstResponder"/>
